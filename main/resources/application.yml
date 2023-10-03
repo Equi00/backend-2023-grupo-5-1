@@ -1,0 +1,36 @@
+spring:
+  #   base de datos posta
+  datasource:
+    url: jdbc:postgresql://127.0.0.1:5432/airphm
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+
+  neo4j:
+    uri: bolt://localhost:7687
+    authentication:
+      username: neo4j
+      password: passw0rd
+
+  data:
+    mongodb:
+      uri: mongodb://127.0.0.1:27017/lodgment?authSource=admin
+
+  jpa:
+    open-in-view: false
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        format_sql: true
+
+# Para activar el Trace
+logging:
+  level:
+    #org.springframework.data: DEBUG
+    org.mongodb.driver.protocol.command: DEBUG
+    root: INFO
+    org.springframework.data: INFO
+    org.neo4j: DEBUG
+    ch.qos.logback: INFO

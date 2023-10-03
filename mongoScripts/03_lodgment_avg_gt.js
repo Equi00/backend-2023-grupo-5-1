@@ -1,0 +1,1 @@
+db.lodgments.find({ rateAverage: {$gt: 4} })

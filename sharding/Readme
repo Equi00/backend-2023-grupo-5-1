@@ -1,0 +1,17 @@
+este link se usa para entrar al studio 3t:
+mongodb://localhost:27117,localhost:27118/?retryWrites=true&serverSelectionTimeoutMS=5000&connectTimeoutMS=10000
+
+link para poner en el application.yml para el sharding pesado:
+mongodb://127.0.0.1:27117,127.0.0.1:27118/lodgment?authSource=admin
+
+ejecucion de scripts(ir a la carpeta sharding):
+docker compose exec configsvr01 sh -c "mongosh < /scripts/init-configserver.js"
+docker compose exec shard01-a sh -c "mongosh < /scripts/init-shard1.js"
+docker compose exec shard02-a sh -c "mongosh < /scripts/init-shard2.js"
+
+esperar 45 segundos y ejecutar:
+docker compose exec router01 sh -c "mongosh < /scripts/init-router.js"
+
+verificar que figure todo:
+docker compose exec router01 mongosh --port 27017
+sh.status()

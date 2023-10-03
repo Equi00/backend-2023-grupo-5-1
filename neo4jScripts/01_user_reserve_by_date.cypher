@@ -1,0 +1,1 @@
+match (:Lodgement)-[:RESERVED_BY {startDate: '2023-06-29'}]->(user:User) return user

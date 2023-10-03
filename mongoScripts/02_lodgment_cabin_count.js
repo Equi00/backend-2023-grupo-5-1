@@ -1,0 +1,1 @@
+db.getCollection("lodgments").find({"_class": "Cabin"}).count();
